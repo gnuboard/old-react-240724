@@ -6,6 +6,8 @@
 ```
 git clone https://github.com/gnuboard/react.git
 cd react
+cp env.local-example .env.local
+# .env.local 수정후 
 npm install
 npm start
 ```
