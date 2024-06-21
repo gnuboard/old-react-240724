@@ -2,9 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import Login01 from './login01/Login01';
-import Home from './components/Home';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
+import Home from './components/Home';
+import Login01 from './login01/Login01';
+import Board01 from './board01/Board01';
+import WriteView from './board01/components/WriteView';
 
 const Header = () => {
   const { isDark, setIsDark } = useTheme();
@@ -43,6 +45,8 @@ const AppContent = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login01" element={<Login01 />} />
+            <Route path="/board/:bo_table" element={<Board01 />} />
+            <Route path="/board/:bo_table/:wr_id" element={<WriteView />} />
           </Routes>
         </div>
       </div>
@@ -69,6 +73,9 @@ const Sidebar = () => (
       </li>
       <li>
         <Link to="/login01">Login01</Link>
+      </li>
+      <li>
+        <Link to="/board/free">Board01</Link>
       </li>
     </ul>
   </nav>
