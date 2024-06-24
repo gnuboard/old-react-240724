@@ -12,9 +12,9 @@ const WritesList = ({ bo_table }) => {
   useEffect(() => {
     const fetchWrites = async () => {
       try {
-        const api = `${process.env.REACT_APP_API_BASE_URL}/boards/${bo_table}/writes`;
-        console.log(api);
-        const response = await fetch(api);
+        const api_url = `${process.env.REACT_APP_API_BASE_URL}/boards/${bo_table}/writes`;
+        console.log(api_url);
+        const response = await fetch(api_url);
         const data = await response.json();
         if (!response.ok) {
           throw new Error(`${bo_table} ${data.detail}` || 'Network response was not ok');
