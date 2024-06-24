@@ -66,35 +66,43 @@ const LoginForm = ({ onLogin }) => {
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <div>
-        {/* <label>Username:</label> */}
-        <input 
-          type="text" 
-          value={username}
-          placeholder="Username"
-          ref={usernameRef}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        {/* <label>Password:</label> */}
-        <input 
-          type="password" 
-          value={password}
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {isLoading ? (
-        <p>Logging in...</p>
-      ) : (
-        <button type="submit">Login</button>
-      )}
-    </form>
+      <form 
+        onSubmit={handleLogin} 
+        className="bg-white w-full max-w-sm"
+      >
+        <div className="mb-4">
+          <input
+            type="text"
+            value={username}
+            placeholder="Username"
+            ref={usernameRef}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div className="mb-4">
+          <input
+            type="password"
+            value={password}
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        {error && <p className="mb-4 text-red-600">{error}</p>}
+        {isLoading ? (
+          <p className="text-center text-gray-600">Logging in...</p>
+        ) : (
+          <button 
+            type="submit" 
+            className="w-full px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors duration-300"
+          >
+            Login
+          </button>
+        )}
+      </form>
   );
 };
 
