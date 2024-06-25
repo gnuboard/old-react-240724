@@ -96,7 +96,7 @@ const Login = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-6 text-gray-900 text-left">Login</h2>
+      <h2 className="text-2xl font-bold mb-6 text-gray-900 text-left dark:text-white">Login</h2>
       {isLoggedIn ? (
         <>
           <WelcomeMessage username={username} />
