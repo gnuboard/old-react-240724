@@ -11,6 +11,8 @@ import 'swiper/css/navigation';
 
 import Header from './header';
 import Footer from './footer';
+import { getNewWrites } from './api';
+import { BoardThumb } from './Components/Board';
 
 const categories = {
   "AIIZ Member": [
@@ -96,7 +98,8 @@ const itemData = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const { free, gallery, qa, notice } = await getNewWrites();
   const handleLogin = () => {
     // 로그인 처리 로직
     console.log('로그인 버튼 클릭');
@@ -202,116 +205,12 @@ export default function Home() {
                 </CardContent>
               </Card>
               <Grid container spacing={3} sx={{ marginTop: 0 }}>
-                <Grid item xs={6}>
-                  <Card>
-                    <CardContent style={{ padding: 0 }}>
-                    <Typography  variant="p" sx={{ color: '#007BFF', borderBottom: '1px dashed #dddddd', width: '100%', display: 'inline-block', fontWeight: 'bold', p: 1 }}>AI 최신정보</Typography>
-                    <Box>
-                      <List style={{ padding: 0 }}>
-                        {items.map((item) => (
-                        <ListItem button component="a" key={item.id} href={`/detail/${item.id}`} sx={{ px: 1, py:0.6 }}>
-                        <ListItemText
-                          primary={item.title}
-                          primaryTypographyProps={{
-                            style: {
-                              fontSize: '12px',      // 폰트 크기 설정
-                              color: '#000',          // 폰트 색상 설정
-                              whiteSpace: 'nowrap',   // 한 줄로만 표시되도록 설정
-                              overflow: 'hidden',     // 넘치는 텍스트 숨기기
-                              textOverflow: 'ellipsis', // 말줄임 표시
-                            }
-                          }}
-                        />
-                      </ListItem>
-                        ))}
-                      </List>
-                    </Box>
-                    </CardContent>
-                  </Card>
-                </Grid>
-                <Grid item xs={6}>
-                  <Card>
-                    <CardContent style={{ padding: 0 }}>
-                    <Typography  variant="p" sx={{ color: '#007BFF', borderBottom: '1px dashed #dddddd', width: '100%', display: 'inline-block', fontWeight: 'bold', p: 1 }}>AI 이벤트</Typography>
-                    <Box>
-                    <List style={{ padding: 0 }}>
-                        {items.map((item) => (
-                          <ListItem button component="a" key={item.id} href={`/detail/${item.id}`} sx={{ px: 1, py:0.6 }}>
-                          <ListItemText
-                            primary={item.title}
-                            primaryTypographyProps={{
-                              style: {
-                                fontSize: '12px',      // 폰트 크기 설정
-                                color: '#000',          // 폰트 색상 설정
-                                whiteSpace: 'nowrap',   // 한 줄로만 표시되도록 설정
-                                overflow: 'hidden',     // 넘치는 텍스트 숨기기
-                                textOverflow: 'ellipsis', // 말줄임 표시
-                              }
-                            }}
-                          />
-                        </ListItem>
-                        ))}
-                      </List>
-                    </Box>
-                    </CardContent>
-                  </Card>
-                </Grid>
+                <BoardThumb board={free} title="자유게시판" />
+                <BoardThumb board={gallery} title="갤러리" />
               </Grid>
               <Grid container spacing={3} sx={{ marginTop: 0 }}>
-                <Grid item xs={6}>
-                  <Card>
-                    <CardContent style={{ padding: 0 }}>
-                    <Typography  variant="p" sx={{ color: '#007BFF', borderBottom: '1px dashed #dddddd', width: '100%', display: 'inline-block', fontWeight: 'bold', p: 1 }}>AI 최신정보</Typography>
-                    <Box>
-                      <List style={{ padding: 0 }}>
-                        {items.map((item) => (
-                          <ListItem button component="a" key={item.id} href={`/detail/${item.id}`} sx={{ px: 1, py:0.6 }}>
-                          <ListItemText
-                            primary={item.title}
-                            primaryTypographyProps={{
-                              style: {
-                                fontSize: '12px',      // 폰트 크기 설정
-                                color: '#000',          // 폰트 색상 설정
-                                whiteSpace: 'nowrap',   // 한 줄로만 표시되도록 설정
-                                overflow: 'hidden',     // 넘치는 텍스트 숨기기
-                                textOverflow: 'ellipsis', // 말줄임 표시
-                              }
-                            }}
-                          />
-                        </ListItem>
-                        ))}
-                      </List>
-                    </Box>
-                    </CardContent>
-                  </Card>
-                </Grid>
-                <Grid item xs={6}>
-                  <Card>
-                    <CardContent style={{ padding: 0 }}>
-                    <Typography  variant="p" sx={{ color: '#007BFF', borderBottom: '1px dashed #dddddd', width: '100%', display: 'inline-block', fontWeight: 'bold', p: 1 }}>AI 이벤트</Typography>
-                    <Box>
-                    <List style={{ padding: 0 }}>
-                        {items.map((item) => (
-                           <ListItem button component="a" key={item.id} href={`/detail/${item.id}`} sx={{ px: 1, py:0.6 }}>
-                           <ListItemText
-                             primary={item.title}
-                             primaryTypographyProps={{
-                               style: {
-                                 fontSize: '12px',      // 폰트 크기 설정
-                                 color: '#000',          // 폰트 색상 설정
-                                 whiteSpace: 'nowrap',   // 한 줄로만 표시되도록 설정
-                                 overflow: 'hidden',     // 넘치는 텍스트 숨기기
-                                 textOverflow: 'ellipsis', // 말줄임 표시
-                               }
-                             }}
-                           />
-                         </ListItem>
-                        ))}
-                      </List>
-                    </Box>
-                    </CardContent>
-                  </Card>
-                </Grid>
+                <BoardThumb board={qa} title="질문/답변" />
+                <BoardThumb board={notice} title="공지사항" />
               </Grid>
               <Card sx={{ marginTop: 3 }}>
                 <CardContent style={{ padding: 0 }}>
