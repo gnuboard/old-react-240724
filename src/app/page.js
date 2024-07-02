@@ -98,8 +98,17 @@ const itemData = [
   },
 ];
 
-export default async function Home() {
-  const { free, gallery, qa, notice } = await getNewWrites();
+export default function Home() {
+  const [data, setData] = React.useState();
+  const fetchData = async () => {
+    const result = await getNewWrites();
+    setData(result);
+  };
+
+  React.useEffect(() => {
+    fetchData();
+  }, []);
+
   const handleLogin = () => {
     // 로그인 처리 로직
     console.log('로그인 버튼 클릭');
@@ -205,12 +214,12 @@ export default async function Home() {
                 </CardContent>
               </Card>
               <Grid container spacing={3} sx={{ marginTop: 0 }}>
-                <BoardThumb board={free} title="자유게시판" />
-                <BoardThumb board={gallery} title="갤러리" />
+                <BoardThumb board={data?.free} title="자유게시판" />
+                <BoardThumb board={data?.gallery} title="갤러리" />
               </Grid>
               <Grid container spacing={3} sx={{ marginTop: 0 }}>
-                <BoardThumb board={qa} title="질문/답변" />
-                <BoardThumb board={notice} title="공지사항" />
+                <BoardThumb board={data?.qa} title="질문/답변" />
+                <BoardThumb board={data?.notice} title="공지사항" />
               </Grid>
               <Card sx={{ marginTop: 3 }}>
                 <CardContent style={{ padding: 0 }}>
