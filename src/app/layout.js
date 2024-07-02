@@ -7,34 +7,11 @@ import theme from './theme';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 
-import Header from './header';
-import Footer from './footer';
-import MobileMenu from './mobileMenu';
+import Header from './components/header';
+import Footer from './components/footer';
+import MobileMenu from './components/mobileMenu';
 
-const categories = {
-  "AIIZ Member": [
-    "AI최신정보",
-    "AI영상뉴스",
-    "AI이벤트",
-    "AI 갤러리",
-  ],
-  "Community": [
-    "자유게시판",
-    "OPENAI GPT",
-    "AI 질문/답변",
-  ],
-  "Tool Ai Service": [
-    "베스트 TOP100",
-    "디자인/이미지",
-    "영상/제작/편집",
-    "음악/음성/자막",
-    "컨텐츠/생산성",
-    "WEB/APP/개발",
-    "업무용/효율성",
-    "교육용/스터디",
-    "기타 AI 서비스"
-  ]
-};
+import { categories } from './data/dummyData';
 
 export default function RootLayout({ children }) {
 
