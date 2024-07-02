@@ -9,3 +9,8 @@ export const api = axios.create({
 
 export const getNewWrites = async () =>
     api.get("/board-new/writes").then(res => res.data);
+
+export const getWrite = async ({ bo_table, wr_id }) =>{
+  const url = `/boards/${bo_table}/writes/${wr_id}`;
+  return api.get(url).then(res => res.data).catch(error => {throw error;});
+}

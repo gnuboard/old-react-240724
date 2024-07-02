@@ -214,12 +214,12 @@ export default function Home() {
                 </CardContent>
               </Card>
               <Grid container spacing={3} sx={{ marginTop: 0 }}>
-                <BoardThumb board={data?.free} title="자유게시판" />
-                <BoardThumb board={data?.gallery} title="갤러리" />
+                <BoardThumb board={data?.free} bo_table="free" title="자유게시판" />
+                <BoardThumb board={data?.gallery} bo_table="gallery" title="갤러리" />
               </Grid>
               <Grid container spacing={3} sx={{ marginTop: 0 }}>
-                <BoardThumb board={data?.qa} title="질문/답변" />
-                <BoardThumb board={data?.notice} title="공지사항" />
+                <BoardThumb board={data?.qa} bo_table="qa" title="질문/답변" />
+                <BoardThumb board={data?.notice} bo_table="notice" title="공지사항" />
               </Grid>
               <Card sx={{ marginTop: 3 }}>
                 <CardContent style={{ padding: 0 }}>

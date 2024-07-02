@@ -1,7 +1,7 @@
 import { Typography, Grid, Card, CardContent, List, ListItem, ListItemText } from '@mui/material';
 import { Box } from '@mui/system';
 
-export function BoardThumb({board, title}) {
+export function BoardThumb({board, bo_table, title}) {
     const boardPartial = board?.slice(-5);
     return (
       <Grid item xs={6}>
@@ -11,7 +11,7 @@ export function BoardThumb({board, title}) {
           <Box>
           <List style={{ padding: 0 }}>
               {boardPartial?.map((item) => (
-                <ListItem button component="a" key={item.wr_id} href={`/detail/${item.wr_id}`} sx={{ px: 1, py:0.6 }}>
+                <ListItem button component="a" key={item.wr_id} href={`/${bo_table}/writes/${item.wr_id}`} sx={{ px: 1, py:0.6 }}>
                 <ListItemText
                   primary={item.wr_subject}
                   primaryTypographyProps={{
