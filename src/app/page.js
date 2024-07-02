@@ -9,9 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import Header from './header';
-import Footer from './footer';
-import MobileMenu from './mobileMenu';
+
 
 const categories = {
   "AIIZ Member": [
@@ -87,24 +85,13 @@ const itemData = [
 
 export default function Home() {
 
-  const [drawerOpen, setDrawerOpen] = React.useState(false);
-
-  const toggleDrawer = (open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-    setDrawerOpen(open);
-  };
-
   const handleLogin = () => {
     // 로그인 처리 로직
     console.log('로그인 버튼 클릭');
   };
 
   return (
-    <Box sx={{ backgroundColor: '#eeeeee', pt: 12 }}>
-      <Header />
-      <Box component="main">
+      <Box component="main" sx={{ backgroundColor: '#eeeeee', pt: 12 }}>
         <Container maxWidth="xl" sx={{ px: 1 }} >
           {/* 컨텐츠 영역 */}
           <Grid container spacing={3}>
@@ -989,8 +976,5 @@ export default function Home() {
           </Grid>
         </Container>
       </Box>
-      <Footer />
-      <MobileMenu drawerOpen={drawerOpen} toggleDrawer={toggleDrawer} categories={categories} />
-    </Box>
   );
 }
