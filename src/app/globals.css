@@ -11,3 +11,8 @@
 .swiper-button-next::after, .swiper-button-prev::after {
   font-size: 24px !important; /* 화살표 아이콘 크기 */
 }
+
+table, th, td {
+  border: 1px solid #cccccc;
+  border-collapse: collapse;
+}

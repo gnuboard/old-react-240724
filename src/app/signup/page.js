@@ -29,9 +29,6 @@ export default function Contact() {
       </Typography>
       <Box component="div" style={{ height: 100, overflowY: 'scroll', border: '1px solid #ccc', padding: 10 }}>
         <Typography variant="body2">
-          서더야냐야 합니다, 나만 이미 너름날 시률한 성구메는 제15조의 성삭셜의 능에 관한 규성에 나듭니다.
-        </Typography>
-        <Typography variant="body2">
           제13조 재화 등의 공급
           1. "플랫폼"은 이용자와 재화 등의 공급시기에 관하여 별도의 약정이 없는 이상, 이용자가 청약을 한 날부터 7일 이내에 재화 등을 배송할 수 있도록 주문제작, 포장 등 기타의 필요한 조치를 취합니다. 다만, "플랫폼"이 이미 재화 등의 대금의 전부 또는 일부를 받은 경우에는 대금의 전부 또는 일부를 받은 날부터 3영업일 이내에 조치를 취합니다. 이때 "플랫폼"은 이용자가 재화 등의 공급 절차 및 진행 사항을 확인할 수 있도록 적절한 조치를 합니다.
         </Typography>
@@ -43,8 +40,8 @@ export default function Contact() {
       <Typography variant="body1" gutterBottom>
         개인정보처리방침
       </Typography>
-      <Box component="div" style={{ border: '1px solid #ccc', padding: 10 }}>
-        <table>
+      <Box component="div">
+        <table style={{width: '100%'}}>
           <thead>
             <tr>
               <th>목적</th>
