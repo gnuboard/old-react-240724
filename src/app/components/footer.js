@@ -5,9 +5,9 @@ import { Box, Container, Grid, Typography, Link } from '@mui/material';
 
 export default function Footer() {
   return (
-    <Box sx={{ bgcolor: '#e6e6e6', pt: 1, borderTop: '1px solid #dddddd', borderBottom: '1px solid #dddddd'}}>
+    <Box sx={{ bgcolor: '#e6e6e6', mt: 2}}>
       <Container maxWidth="xl">
-        <Grid container spacing={2} justifyContent="space-between" sx={{ pb: 1}}>
+        <Grid container spacing={0} justifyContent="space-between" sx={{ py: 1, borderTop: '1px solid #dddddd', borderBottom: '1px solid #dddddd'}}>
           <Grid item>
             <Link href="#" underline="none" color="inherit" sx={{ mx: 1, fontSize: '12px' }}>
               사이트 소개
